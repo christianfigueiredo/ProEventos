@@ -196,6 +196,9 @@ comandos/
 # in these scripts will be unencrypted
 PublishScripts/
 
+*.db-shm
+*.db-wal
+*.db
 # NuGet Packages
 *.nupkg
 # NuGet Symbol Packages
