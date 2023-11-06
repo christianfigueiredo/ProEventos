@@ -2,14 +2,15 @@
 <hr>
 <form action="" class="form-inline">
     <div class="form-group mb-3">
-        <input type="text" class="form control" placeholder="buscar">
-        <button class="btn btn-outline-success">Buscar</button>
+        <label  class="mr-2"><h4>Filtro: </h4></label>
+        <input type="text" class="form control" placeholder="buscar"
+        [(ngModel)]="filtroLista" name="filtro">       
     </div>
 </form>
 <table class="table table-striped">
     <thead class="table-dark">
         <tr>
-            <th><button type="button" class="btn btn-outline-info btn-sm"
+            <th><button type="button" class="btn btn-outline-light btn-sm"
                 (click)="mostrarImagem = !mostrarImagem">{{mostrarImagem ? 'Ocultar' : 'Mostrar'}}</button></th>
             <th>#</th>
             <th>Tema</th>
@@ -21,7 +22,7 @@
         </tr>
     </thead>
     <tbody *ngIf="eventos && eventos.length">
-        <tr *ngFor="let evento of eventos">
+        <tr *ngFor="let evento of eventosFiltrados">
             <td>
                 <img 
                 [collapse]="!mostrarImagem" [isAnimated]="true" src="/assets/img/{{evento.imagemURL}}"
@@ -30,13 +31,13 @@
             </td>
             <td>{{evento.eventoId}}</td>
             <td>{{evento.tema}}</td>
-            <td>{{evento.tema}}</td>
+            <td>{{evento.local}}</td>
             <td>{{evento.dataEvento}}</td>
             <td>{{evento.qtdPessoas}}</td>
             <td>{{evento.lote}}</td>
             <td>               
-                <button class="btn btn-primary">editar</button>
-                <button class="btn btn-danger">excluir</button>                
+                <button class="btn btn-outline-primary btn-sm">editar</button>
+                <button class="btn btn-outline-danger btn-sm m-lg-1">excluir</button>                
             </td>
         </tr>
     </tbody>
