@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
   isCollapsed = true;
+
   constructor() { }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+
+  ngOnInit(): void { }
 }
