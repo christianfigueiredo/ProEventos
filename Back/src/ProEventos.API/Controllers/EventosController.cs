@@ -81,7 +81,7 @@ namespace ProEventos.API.Controllers
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                    $"Erro ao tentar recuperar evento. Erro: {ex.Message}");
+                    $"Erro ao tentar adicionar eventos. Erro: {ex.Message}");
             }      
            
         }
@@ -91,13 +91,13 @@ namespace ProEventos.API.Controllers
             try
             {
                 var evento = await _eventoService.UpdateEventos(id,model);
-                if(evento == null) return BadRequest("Erro ao tentar adicionar evento");
+                if(evento == null) return BadRequest("Erro ao tentar atualizar evento");
                 return Ok(evento);                 
             }     
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                    $"Erro ao tentar recuperar evento. Erro: {ex.Message}");
+                    $"Erro ao tentar atualizar evento. Erro: {ex.Message}");
             }      
            
         }
@@ -107,13 +107,15 @@ namespace ProEventos.API.Controllers
         {
             try
             {
-                 return await _eventoService.DeleteEventos(id) ? Ok("Deletado") : BadRequest("Evento não deletado");                         
+                 return await _eventoService.DeleteEventos(id) ? 
+                 Ok("Deletado") : 
+                 BadRequest("Evento não deletado");                         
             }     
 
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                    $"Erro ao tentar deletar evento. Erro: {ex.Message}");
+                    $"Erro ao tentar deletar eventos. Erro: {ex.Message}");
             }      
            
         }

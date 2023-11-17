@@ -38,11 +38,11 @@ namespace ProEventos.Application
             try
             {
                 var evento = await _eventoPersist.GetEventoByIdAsync(eventoId, false);
-                if (evento == null) return null;
+                if (evento == null) return null;               
 
-                model.Id = evento.Id;
-
+                model.Id = evento.Id;   
                 _geralPersist.Update(model);
+                
                 if (await _geralPersist.SaveChangesAsync())
                 {
                     return await _eventoPersist.GetEventoByIdAsync(model.Id, false);

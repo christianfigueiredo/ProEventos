@@ -22,7 +22,18 @@ namespace ProEventos.Persistence.Contextos
              modelBuilder.Entity<PalestranteEvento>()
              .HasKey(PE => new {PE.EventoId, PE.PalestranteId});
              // dado um palestrante e um evento, o evento pode ter muitos palestrantes e o palestrante pode ter muitos eventos
+
+            modelBuilder.Entity<Evento>()
+            .HasMany(e => e.RedesSociais)
+            .WithOne(rs => rs.Evento)
+            .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Palestrante>()
+            .HasMany(p => p.RedesSociais)
+            .WithOne(rs => rs.Palestrante)
+            .OnDelete(DeleteBehavior.Cascade);                     
          }
+
 
     }
 }
