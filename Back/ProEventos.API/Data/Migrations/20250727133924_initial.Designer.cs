@@ -10,7 +10,7 @@ using ProEventos.API.Data;
 namespace ProEventos.API.Data.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20250727125624_initial")]
+    [Migration("20250727133924_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
