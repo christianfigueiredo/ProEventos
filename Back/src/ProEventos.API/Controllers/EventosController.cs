@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ProEventos.API.Data;
 using ProEventos.API.Models;
 
 namespace ProEventos.API.Controllers;
@@ -7,8 +9,14 @@ namespace ProEventos.API.Controllers;
 [Route("api/[controller]")]
 public class EventosController : ControllerBase
 {   
+    private readonly DbContexto _contexto;
 
-    public IEnumerable<Evento> _evento = new Evento [] 
+    public EventosController(DbContexto contexto)
+    {
+        _contexto = contexto;
+    }
+
+    /* public IEnumerable<Evento> _evento = new Evento [] 
         {
             new Evento(){
             EventoId = 1,
@@ -29,19 +37,19 @@ public class EventosController : ControllerBase
             ImagemURL = "foto2.png"
         }
 
-        };
+        }; */
 
     [HttpGet]
     public IEnumerable<Evento>  GetEventos()
     {
-        return _evento;               
+        return _contexto.Eventos!;               
        
     }
 
     [HttpGet("{id}")]
-   public IEnumerable<Evento> GetById(int id)
+   public Evento  GetById(int id)
     {
-        return _evento.Where(evento=>evento.EventoId == id);
+        return _contexto.Eventos!.First(evento => evento.EventoId == id);
        
     }
 
