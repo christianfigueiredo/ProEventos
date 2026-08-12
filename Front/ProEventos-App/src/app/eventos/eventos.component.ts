@@ -10,11 +10,16 @@ import { Component, OnInit } from '@angular/core';
 export class EventosComponent implements OnInit {
 
   public eventos: any = [];
+  exibirImagem: boolean = true;
 
   constructor(private http: HttpClient){}
 
   ngOnInit(): void{
      this.getEventos();
+  }
+
+  alterarImagem(): void {
+    this.exibirImagem = !this.exibirImagem;
   }
 
   public getEventos(): void {
