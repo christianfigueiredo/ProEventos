@@ -23,7 +23,7 @@
       <tr *ngFor="let evento of eventos">
         <td>{{ evento.eventoId}}</td>
         <td>
-          <img src="{{evento.imagemURL}}" alt="">
+          <img src= "{{ evento.imagemURL }}" alt="" width="60" height="60" class="rounded-circle">
         </td>
         <td>{{evento.tema}}</td>
         <td>{{evento.local}}</td>
@@ -32,8 +32,8 @@
         <td>{{evento.lote}}</td>
         <td>
           <button class="btn btn-outline-primary">Detalhes</button>
-          <button class="btn btn-outline-warning">Editar</button>
-          <button class="btn btn-outline-danger">Excluir</button>
+          <button class="btn btn-outline-warning ms-1">Editar</button>
+          <button class="btn btn-outline-danger ms-1">Excluir</button>
         </td>
       </tr>
     </tbody>
